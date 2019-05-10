@@ -24,6 +24,7 @@
 }
 
 /* normalize the input elements, make them look like everything else */
+
 .nl-form input,
 .nl-form select,
 .nl-form button {
@@ -189,7 +190,7 @@ input:focus::-moz-placeholder {
 	color: rgba(255,255,255,0.2);
 }
 
-input:-ms-input-placeholder {  
+input:-ms-input-placeholder {
 	color: rgba(255,255,255,0.8);
 }
 

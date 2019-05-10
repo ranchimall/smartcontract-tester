@@ -12,6 +12,7 @@
     opacity: 1; }
 
 .c-datepicker {
+  color: #000000;
   min-height: 610px;
   position: fixed;
   left: 50%;

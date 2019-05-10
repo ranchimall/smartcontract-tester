@@ -38,6 +38,11 @@
 				self.fldOpen++;
 				self.fields.push( new NLField( self, el, 'input', self.fldOpen ) );
 			} );
+			Array.prototype.slice.call( this.el.querySelectorAll( 'a' + self.elClass ) ).forEach( function( el, i ) {
+				self.fldOpen++;
+				//self.fields.push( new NLField( self, el, 'dropdown', self.fldOpen ) );
+
+			} );
 			this.overlay.addEventListener( 'click', function(ev) { self._closeFlds(); } );
 			this.overlay.addEventListener( 'touchstart', function(ev) { self._closeFlds(); } );
 		},
@@ -68,6 +73,9 @@
 			}
 			else if( this.type === 'input' ) {
 				this._createInput();
+			}
+			else if( this.type === 'widget' ) {
+				//this._createInput();
 			}
 		},
 		_createDropDown : function() {
