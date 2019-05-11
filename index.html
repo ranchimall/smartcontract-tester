@@ -1,25 +1,23 @@
 <!DOCTYPE html>
 <html lang="en" class="no-js">
-	<head>
-		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Natural Language Form</title>
-		<meta name="description" content="Natural Language Form with custom text input and drop-down lists" />
-		<meta name="keywords" content="Natural Language UI, sentence form, text input, contenteditable, html5, css3, jquery" />
-		<meta name="author" content="Codrops" />
-		<link rel="shortcut icon" href="../favicon.ico">
-		<link rel="stylesheet" type="text/css" href="css/default.css" />
-		<link rel="stylesheet" type="text/css" href="css/component.css" />
 
-		<!-- START Content from date time picker -->
-
-		<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
-  		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  		<link rel="stylesheet" href="css/material-datetime-picker.css">
-
-  		<style>
-  			/*
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Contract Creator</title>
+    <meta name="description" content="Natural Language Form used to create text to incorporate or participate " />
+    <meta name="keywords" content="Natural Language, Smart Contract, Ranchi Mall, Blockchain Contract, html5, css3, jquery" />
+    <meta name="author" content="Vivek Teega" />
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" type="text/css" href="css/default.css" />
+    <link rel="stylesheet" type="text/css" href="css/component.css" />
+    <!-- START Content from date time picker -->
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="css/material-datetime-picker.css">
+    <style>
+        /*
 		    body {
 		      font-family: 'Roboto', sans-serif;
 		      -webkit-font-smoothing: antialiased;
@@ -41,76 +39,81 @@
 		    }
 
 		  </style>
+    <!-- END Content from date time picker -->
+    <script src="js/modernizr.custom.js"></script>
+</head>
 
-		<!-- END Content from date time picker -->
+<body class="nl-blurred">
+    <div class="container demo-1">
+        <!-- Top Navigation -->
+        <div class="codrops-top clearfix">
+            <a class="codrops-icon codrops-icon-prev" href="https://medium.com/ranchimall"><span>Ranchi Mall</span></a>
+            <span class="right"><a class="codrops-icon codrops-icon-github" href="https://github.com/ranchimall/smartcontract-tester"><span>Github</span></a></span>
+        </div>
+        <header>
+            <h1>Smart Contract Creator <span>with natural language</span></h1>
+        </header>
+        <div class="main clearfix">
+            <form id="nl-form" class="nl-form">
+                Create Smart Contract with the name <input type="text" value="" placeholder="India-elections-2019" data-subline="For example: <em>Land-ownership</em> or <em>My-Will</em>" />@ <br />of the type
+                <select>
+                    <option value="1" selected>one-time-event</option>
+                </select>* using the asset <input type="text" value="" placeholder="rmt" data-subline="For example: <em>rmt</em> or <em>alphacoin</em>" /># at the address <input type="text" value="" placeholder="FLO Address" data-subline="For example: <em>FFE1n1rAeCwAhtj2iQMEfmtHgeASGPvM4e</em> or <em>FDFyvAMqbiNSQ4JMEMG2DQ2s8y73yMFM1S</em>" />$ with contract-conditions: (1) contractAmount=<input type="text" value="" placeholder="5rmt" data-subline="For example: <em>5rmt</em> or <em>4alphacoin/em>" /> (2) userchoices=<input type="text" value="" placeholder="Narendra Modi wins| Narendra Modi loses" data-subline="For example: Write your contract conditions separated by '|' " /> (3) expirytime=
+                <!-- date time picker content-->
+                <a id='widgetAttribute' class="nl-field-toggle">
+                    <span id='widgetButton' class="material-icon">date-time</span>
+                </a>
+                <pre id="output"></pre>
+                <!-- date time picker content-->
+                <div class="nl-submit-wrap">
+                    <button onclick="copyFunction()" class="nl-submit">Copy</button>
+                </div>
+                <div class="nl-overlay"></div>
+            </form>
+        </div>
+    </div><!-- /container -->
+    <!-- START content from material date time picker-->
+    <script src="https://unpkg.com/babel-polyfill@6.2.0/dist/polyfill.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/rome/2.1.22/rome.standalone.js"></script>
+    <script src="js/material-datetime-picker.js" charset="utf-8"></script>
+    <script>
+    var picker = new MaterialDatetimePicker({})
+        .on('submit', function(d) {
+            var element = document.getElementById('widgetButton');
+            element.innerHTML = d;
+        });
 
-		<script src="js/modernizr.custom.js"></script>
-	</head>
-	<body class="nl-blurred">
-		<div class="container demo-1">
-			<!-- Top Navigation -->
-			<div class="codrops-top clearfix">
-				<a class="codrops-icon codrops-icon-prev" href="https://tympanus.net/Development/MorphingDevices/"><span>Previous Demo</span></a>
-				<span class="right"><a class="codrops-icon codrops-icon-drop" href="https://tympanus.net/codrops/?p=15139"><span>Back to the Codrops Article</span></a></span>
-			</div>
-			<header>
-				<h1>Smart Contract Creator <span>with custom input elements</span></h1>
-			</header>
-			<div class="main clearfix">
-				<form id="nl-form" class="nl-form">
-					Create Smart Contract with the name <input type="text" value="" placeholder="elections" data-subline="For example: <em>Land-ownership</em> or <em>Vivek-will</em>"/>@ <br />of the type
-					<select>
-						<option value="1" selected>one-time-event</option>
-					</select>* using the asset <input type="text" value="" placeholder="rmt" data-subline="For example: <em>rmt</em> or <em>alphacoin</em>"/>#  at the address <input type="text" value="" placeholder="FLO Address" data-subline="For example: <em>FFE1n1rAeCwAhtj2iQMEfmtHgeASGPvM4e</em> or <em>FDFyvAMqbiNSQ4JMEMG2DQ2s8y73yMFM1S</em>"/>$ with contractconditions: 1. contractAmount=<input type="text" value="" placeholder="5rmt" data-subline="For example: <em>5rmt</em> or <em>4alphacoin/em>"/> 2. userchoices=<input type="text" value="" placeholder="NAMO=WIN | NAMO=LOSE" data-subline="For example: Write your contract conditions separated by '|' "/> 3. expirytime=
-
-					<!-- date time picker content-->
-					<a id='widgetAttribute' class="nl-field-toggle">
-						<span id='widgetButton' class="material-icon">date-time</span>
-					</a>
-
-					<pre id="output"></pre>
-					<!-- date time picker content-->
-
-
-					<div class="nl-submit-wrap">
-						<button class="nl-submit" type="submit">Find a restaurant</button>
-					</div>
-
-					<div class="nl-overlay"></div>
-				</form>
-			</div>
-
-		</div><!-- /container -->
-
-		<!-- START content from material date time picker-->
-
-		<script src="https://unpkg.com/babel-polyfill@6.2.0/dist/polyfill.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/rome/2.1.22/rome.standalone.js"></script>
-		<script src="js/material-datetime-picker.js" charset="utf-8"></script>
-
-		<script>
-
-		    var picker = new MaterialDatetimePicker({})
-		      .on('submit', function(d) {
-		        var element = document.getElementById('widgetButton');
-		        element.innerHTML = d;
-		      });
-
-		    var el = document.getElementById('widgetAttribute');
-		    el.addEventListener('click', function() {
-		      picker.open();
-		    }, false);
-
-		</script>
-
-		<!-- END content from material date time picker-->
+    var el = document.getElementById('widgetAttribute');
+    el.addEventListener('click', function() {
+        picker.open();
+    }, false);
+    </script>
+    <!-- END content from material date time picker-->
+    <script src="js/nlform.js"></script>
+    <script>
+    var nlform = new NLForm(document.getElementById('nl-form'));
+    </script>
+    <script>
+    function copyFunction() {
+        /* Get the text from form and create new element for copying */
+        var copyText = document.getElementById("nl-form");
+        var textarea = document.createElement('textarea');
+        textarea.value = copyText.innerText.slice(0, -5);
+        document.body.appendChild(textarea);
 
 
-		<script src="js/nlform.js"></script>
-		<script>
-			var nlform = new NLForm( document.getElementById( 'nl-form' ) );
-		</script>
+        /* Select the text field */
+        textarea.select();
 
-	</body>
+        /* Copy the text inside the text field */
+        document.execCommand("Copy");
+
+        /* Remove the newly created element from visible space */
+        document.body.removeChild(textarea);
+
+    }
+    </script>
+</body>
+
 </html>
